@@ -9,6 +9,8 @@ toggleIcon.addEventListener('click', (event) => {
 	sideBar.classList.toggle('active');
 });
 
+
+// Close side-bar when click on another element
 document.addEventListener('click', (event) => {
 	const target = event.target;
 

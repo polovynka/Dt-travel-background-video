@@ -91,7 +91,7 @@ body {
     &__text {
         position: relative;
         z-index: 10;
-        max-width: 800px;
+        max-width: 70%;
     }
 
     &__title {
@@ -269,9 +269,6 @@ body {
 @media (max-width: 1140px) {
     .side-bar {
         width: 150px;
-        &__list {
-            transform: translateY(-200%);
-        }
         &__item {
             font-size: 15px;
         }

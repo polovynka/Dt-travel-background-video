@@ -28,7 +28,7 @@ const html = () => {
 			collapseWhitespace: true,
 			removeComments: true
 		}))
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('docs'))
 };
 
 // *Styles
@@ -39,7 +39,7 @@ const styles = () => {
 		.pipe(autoprefixer())
 		.pipe(clean({ level: 2 }))
 		.pipe(concat('styles.min.css'))
-		.pipe(gulp.dest('dist/css'));
+		.pipe(gulp.dest('docs/css'));
 };
 
 // *Fonts
@@ -48,7 +48,7 @@ const styles = () => {
 
 const fontsMoving = () => {
 	return gulp.src(['src/fonts/*.woff', 'src/fonts/*.woff2'])
-		.pipe(gulp.dest('dist/fonts'))
+		.pipe(gulp.dest('docs/fonts'))
 };
 
 // *Scripts
@@ -60,7 +60,7 @@ const scripts = () => {
 			presets: ["@babel/preset-env"]
 		}))
 		.pipe(terser())
-		.pipe(gulp.dest('dist/js'))
+		.pipe(gulp.dest('docs/js'))
 };
 
 // *Images
@@ -84,7 +84,7 @@ const images = () => {
 				]
 			})
 		]))
-		.pipe(gulp.dest('dist/images'))
+		.pipe(gulp.dest('docs/images'))
 };
 
 const imgToWebp = () => {
@@ -97,7 +97,7 @@ const imgToWebp = () => {
 		.pipe(rename((path) => {
 			path.extname = '.webp';
 		}))
-		.pipe(gulp.dest('dist/images'))
+		.pipe(gulp.dest('docs/images'))
 }
 
 // *Browser Sync
@@ -105,7 +105,7 @@ const imgToWebp = () => {
 const sync = () => {
 	browserSync.init({
 		server: {
-			baseDir: "dist"
+			baseDir: "docs"
 		},
 		open: false,
 		notify: false
@@ -119,7 +119,7 @@ const sync = () => {
 // *Clear
 
 const clear = () => {
-	return del('dist')
+	return del('docs')
 };
 
 // *Default export
